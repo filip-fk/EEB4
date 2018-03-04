@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -22,6 +23,7 @@ namespace EEB4
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
+    /// the mainPage displays a welcome screen or first view for signed in users
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -31,13 +33,23 @@ namespace EEB4
         {
             this.InitializeComponent();
 
-            Home.IsSelected = true;
+            //close pane
+            navVS.IsPaneOpen = false;
 
+            //check sihn in
+            if (check_signIn() == true)
+            {
+                Home.IsSelected = true;
+            }
+            else navVS.IsEnabled = false;
+
+            //start date/time
             DataContext = this;
             Timer.Tick += Timer_Tick;
             Timer.Interval = new TimeSpan(0, 0, 1);
             Timer.Start();
 
+            //fill screen desktop
             ApplicationViewTitleBar formattableTitleBar = ApplicationView.GetForCurrentView().TitleBar;
             formattableTitleBar.ButtonBackgroundColor = Colors.Transparent;
             formattableTitleBar.ButtonForegroundColor = Colors.Black;
@@ -46,13 +58,29 @@ namespace EEB4
             coreTitleBar.ExtendViewIntoTitleBar = true;
         }
 
+        //check whether user signed in
+        private Boolean check_signIn()
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+            Object signIn = localSettings.Values["IsSignedIn"];
+            if (signIn.ToString() == "True")
+            { return true; }
+            else return false;
+        }
+
+        //handle selection changed in navigation view
+        //redirect to pages
         private void navV_slc(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
+            //settings
             if (args.IsSettingsSelected)
             {
                 contentFrame.Navigate(typeof(SettingsPage1));
             }
 
+            //all other
             else
             {
                 var selectedItem = (NavigationViewItem)args.SelectedItem;
@@ -62,6 +90,7 @@ namespace EEB4
             }
         }
 
+        //pane opened is not supported on builds before 17095
         private void NavigationView_PaneOpened(NavigationView sender, object args)
         {
             Headings.Visibility = Visibility.Visible;
@@ -73,6 +102,7 @@ namespace EEB4
             //p_pic.HorizontalAlignment = HorizontalAlignment.Right;
         }
 
+        //pane closed is not supported on builds before 17095
         private void NavigationView_PaneClosed(NavigationView sender, object args)
         {
             Headings.Visibility = Visibility.Collapsed;
@@ -84,6 +114,7 @@ namespace EEB4
             //p_pic.HorizontalAlignment = HorizontalAlignment.Left;
         }
 
+        //set greeting
         private void Timer_Tick(object sender, object e)
         {
             Date.Text = DateTime.Today.DayOfWeek + " " + DateTime.Today.Day + "/" + DateTime.Today.Month + "/" + DateTime.Today.Year + " | " + DateTime.Now.ToString("h:mm");

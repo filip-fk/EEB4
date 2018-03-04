@@ -24,12 +24,26 @@ namespace EEB4
 {
     public sealed partial class ItemPane : UserControl
     {
+        /// <summary>
+        /// userControl to unite all instences throughout the app for a field with a tite content and footer
+        /// </summary>
+        /// <param name="height"></param>
+        /// <param name="width"></param>
+        /// <param name="title"></param>
+        /// <param name="title_ha"></param>
+        /// <param name="content"></param>
+        /// <param name="footer_l"></param>
+        /// <param name="footer_r"></param>
+        
         public ItemPane(int height, int width, string title, HorizontalAlignment title_ha, Grid content, string footer_l, string footer_r)
         {
             this.InitializeComponent();
+
+            //call set properties
             InitializePane(height, width, title, title_ha, content, footer_l, footer_r);
         }
 
+        //set properties
         private void InitializePane(int height, int width, string title, HorizontalAlignment title_ha, Grid content, string footer_l, string footer_r)
         {
             main0.Width = width;
@@ -47,6 +61,7 @@ namespace EEB4
             InitializeDropShadow(shadowHost, main01);
         }
 
+        //add shadow effect to main pane
         private void InitializeDropShadow(UIElement ShadowHost, Shape shadowTarget)
         {
             Visual hostVisual = ElementCompositionPreview.GetElementVisual(ShadowHost);

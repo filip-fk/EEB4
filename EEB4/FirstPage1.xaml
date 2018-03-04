@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{x:Null}">
-        
+        <Grid Name="con"/>
     </Grid>
 </Page>
