@@ -1,0 +1,92 @@
+﻿<Page
+    x:Class="EEB4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EEB4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
+        <NavigationView Name="navVS" IsPaneOpen="False" PaneOpened="NavigationView_PaneOpened" PaneClosed="NavigationView_PaneClosed" IsPaneToggleButtonVisible="True" OpenPaneLength="200" SelectionChanged="navV_slc">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Name="Home" IsSelected="True">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xE80f;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="Home" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Name="Assi">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xf0e3;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="Assignments" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Name="News" Margin="0,40,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xe8a1;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="News" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Name="Tran">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xe806;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="Transport" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="Spro">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xf16a;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="School progress" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="Mail" Margin="0,40,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xe715;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="Mail" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="Cale">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xe787;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="Calendar" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="Docu">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xe753;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="Documents" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Frame Margin="0,30,0,0" x:Name="contentFrame">
+                <local:FirstPage1/>
+            </Frame>
+        </NavigationView>
+        <Grid Height="90" Margin="55,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <TextBlock x:Name="Title" Text="Schola Europaea" VerticalAlignment="Top" Margin="160,14,0,0" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="17"/>
+            <StackPanel x:Name="Greeting" Orientation="Horizontal" Margin="160,43,0,0">
+                <TextBlock x:Name="Hi" Text="Hi, Filip!" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" FontSize="19"/>
+                <TextBlock x:Name="Date" Text="Saturday 3/3/2018 | 21:49" VerticalAlignment="Center" Margin="10,5,0,0" HorizontalAlignment="Left" FontWeight="Normal" FontSize="14"/>
+            </StackPanel>
+            <AutoSuggestBox VerticalAlignment="Center" Margin="0,20,20,0" HorizontalAlignment="Right" Width="200" QueryIcon="Find"/>
+        </Grid>
+        <Grid x:Name="Headings" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EdgeUIThemeTransition Edge="Left"/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
+            <StackPanel Margin="20,190,20,0" VerticalAlignment="Top" BorderBrush="Gray" BorderThickness="0,0,0,2">
+                <TextBlock Text="SMS" Foreground="Gray" Margin="5,0,0,0"/>
+            </StackPanel>
+            <StackPanel Margin="20,350,20,0" VerticalAlignment="Top" BorderBrush="Gray" BorderThickness="0,0,0,2">
+                <TextBlock Text="Office 365" Foreground="Gray" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Grid>
+        <!--        
+        <StackPanel Name="user_con" Orientation="Horizontal" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="200">
+            <PersonPicture Name="p_pic" Height="22" DisplayName="Filip Kalapish" Margin="0,0,20,26" HorizontalAlignment="Right"/>
+        </StackPanel>-->
+    </Grid>
+</Page>

@@ -1,0 +1,24 @@
+﻿<UserControl
+    x:Class="EEB4.ItemPane"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EEB4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="main0">
+        <Canvas x:Name="shadowHost"/>
+        <Rectangle x:Name="main01" Fill="WhiteSmoke" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RadiusX="15" RadiusY="15"/>
+        <Grid x:Name="main1" Margin="30,30,30,10">
+            <StackPanel>
+                <TextBlock x:Name="title_" Text="Bus 228 delayed" FontWeight="ExtraBold" FontSize="20" TextWrapping="WrapWholeWords"/>
+                <Grid x:Name="con_" Margin="20,10,30,20">
+
+                </Grid>
+            </StackPanel>
+            <TextBlock Name="f_l" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="LightGray"/>
+            <TextBlock Name="f_r" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="{ThemeResource SystemAccentColor}" FontWeight="Medium" Margin="0,0,0,10" FontSize="18"/>
+        </Grid>
+    </Grid>
+</UserControl>
