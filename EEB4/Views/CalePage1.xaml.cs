@@ -26,5 +26,24 @@ namespace EEB4
         {
             this.InitializeComponent();
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var appointment = new Windows.ApplicationModel.Appointments.Appointment();
+
+            appointment.StartTime = DateTime.Now + TimeSpan.FromDays(1);
+            appointment.Duration = TimeSpan.FromHours(1);
+            appointment.Location = "Meeting location";
+            appointment.Subject = "Meeting subject";
+            appointment.Details = "Meeting description";
+            appointment.Reminder = TimeSpan.FromMinutes(15); // Remind me 15 minutes prior
+
+
+            // ShowAddAppointmentAsync returns an appointment id if the appointment given was added to the user' s calendar.
+            // This value should be stored in app data and roamed so that the appointment can be replaced or removed in the future.
+            // An empty string return value indicates that the user canceled the operation before the appointment was added.
+            String appointmentId =
+                await Windows.ApplicationModel.Appointments.AppointmentManager.ShowEditNewAppointmentAsync(appointment);
+        }
     }
 }

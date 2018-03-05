@@ -7,7 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+    </Page.Resources>
+    
     <Grid Background="{x:Null}">
-        <Grid Name="con"/>
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid Margin="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid Name="con" Grid.Column="0"/>
+                <Slider Orientation="Vertical" Height="400" Width="50" HorizontalAlignment="Center" Grid.Column="2"/>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

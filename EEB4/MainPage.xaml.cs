@@ -40,8 +40,28 @@ namespace EEB4
             if (check_signIn() == true)
             {
                 Home.IsSelected = true;
+                contentFrame.Navigate(typeof(HomePage1));
             }
-            else navVS.IsEnabled = false;
+            else
+            {
+                foreach(NavigationViewItem item in navVS.MenuItems)
+                {
+                    if(item != navVS.SettingsItem)
+                    {
+                        if (item.Name != "Home")
+                        {
+                            item.Visibility = Visibility.Collapsed;
+                        }
+
+                        else
+                        {
+                            //it is home item
+                            item.IsEnabled = false;
+                        }
+                    }
+                }
+                contentFrame.Navigate(typeof(FirstPage1));
+            }
 
             //start date/time
             DataContext = this;
@@ -64,8 +84,11 @@ namespace EEB4
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
 
-            Object signIn = localSettings.Values["IsSignedIn"];
-            if (signIn.ToString() == "True")
+            //write to signedin
+            localSettings.Values["IsSignedIn"] = false.ToString();
+
+            string signIn = localSettings.Values["IsSignedIn"].ToString();
+            if (signIn == true.ToString())
             { return true; }
             else return false;
         }

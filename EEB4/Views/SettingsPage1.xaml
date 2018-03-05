@@ -7,7 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="{x:Null}">
+        <ScrollViewer Margin="30">
+            <StackPanel>
+                <StackPanel>
+                    <TextBlock Text="App name"/>
+                    <TextBlock Text="EEB4" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="App version"/>
+                    <TextBlock Text="1.14" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="App developer"/>
+                    <TextBlock Text="Filip Kalapish" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel BorderBrush="Gray" BorderThickness="0,2,0,0" Margin="0,15,0,0">
+                    <TextBlock Text="User info" Margin="0,25,0,0"/>
+                </StackPanel>
+                <StackPanel Name="user_info">
+                </StackPanel>
+                <Frame Name="main_frame" Visibility="Collapsed"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
