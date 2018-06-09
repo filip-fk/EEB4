@@ -27,7 +27,32 @@ namespace EEB4
             this.InitializeComponent();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void add_event(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
+        {
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = "Add event",
+                Content = "A new event was not added!",
+                CloseButtonText = "Ok"
+            };
+
+            try
+            {
+                //ContentDialogResult result = await noWifiDialog.ShowAsync();
+            }
+            catch(Exception e) {
+                ContentDialog noWifiDialog2 = new ContentDialog
+                {
+                    Title = "Error",
+                    Content = e,
+                    CloseButtonText = "Ok"
+                }; //ContentDialogResult result = await noWifiDialog.ShowAsync();
+            }
+        }
+
+
+
+        /*private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var appointment = new Windows.ApplicationModel.Appointments.Appointment();
 
@@ -44,6 +69,6 @@ namespace EEB4
             // An empty string return value indicates that the user canceled the operation before the appointment was added.
             String appointmentId =
                 await Windows.ApplicationModel.Appointments.AppointmentManager.ShowEditNewAppointmentAsync(appointment);
-        }
+        }*/
     }
 }

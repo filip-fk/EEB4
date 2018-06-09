@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}">
-        <NavigationView Name="navVS" IsPaneOpen="False" PaneOpened="NavigationView_PaneOpened" PaneClosed="NavigationView_PaneClosed" IsPaneToggleButtonVisible="True" OpenPaneLength="200" SelectionChanged="navV_slc">
+        <NavigationView Name="navVS" IsPaneOpen="True" PaneOpened="NavigationView_PaneOpened" PaneClosed="NavigationView_PaneClosed" IsPaneToggleButtonVisible="True" OpenPaneLength="200" SelectionChanged="navV_slc">
             <NavigationView.MenuItems>
                 <NavigationViewItem Name="Home" IsSelected="True">
                     <StackPanel Orientation="Horizontal">
@@ -22,7 +22,7 @@
                         <TextBlock Text="Assignments" Margin="17,0,0,0" VerticalAlignment="Center"/>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Name="News" Margin="0,40,0,0">
+                <NavigationViewItem Name="News" Margin="0,0,0,0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xe8a1;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
                         <TextBlock Text="News" Margin="17,0,0,0" VerticalAlignment="Center"/>
@@ -34,13 +34,27 @@
                         <TextBlock Text="Transport" Margin="17,0,0,0" VerticalAlignment="Center"/>
                     </StackPanel>
                 </NavigationViewItem>
+                <NavigationViewItemHeader Content="SMS"/>
                 <NavigationViewItem x:Name="Spro">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xf16a;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
                         <TextBlock Text="School progress" Margin="17,0,0,0" VerticalAlignment="Center"/>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem x:Name="Mail" Margin="0,40,0,0">
+                <NavigationViewItem x:Name="Ssch">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xe8c0;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="School schedule" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="Abcs">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xe7be;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
+                        <TextBlock Text="Abcences" Margin="17,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItemHeader Content="Office 365"/>
+                <NavigationViewItem x:Name="Mail" Margin="0,0,0,0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xe715;" FontFamily="segoe mdl2 assets" VerticalAlignment="Center"/>
                         <TextBlock Text="Mail" Margin="17,0,0,0" VerticalAlignment="Center"/>
@@ -59,29 +73,27 @@
                     </StackPanel>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox QueryIcon="Find"/>
+            </NavigationView.AutoSuggestBox>
             <Frame Margin="0,30,0,0" x:Name="contentFrame">
                 <local:FirstPage1/>
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition>
+                            <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                <EntranceNavigationTransitionInfo />
+                            </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                        </NavigationThemeTransition>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
             </Frame>
         </NavigationView>
         <Grid Height="90" Margin="55,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-            <TextBlock x:Name="Title" Text="Schola Europaea" VerticalAlignment="Top" Margin="160,14,0,0" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="17"/>
-            <StackPanel x:Name="Greeting" Orientation="Horizontal" Margin="160,43,0,0">
-                <TextBlock x:Name="Hi" Text="Hi, Filip!" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" FontSize="19"/>
+            <TextBlock x:Name="Title" Text="Schola Europaea" VerticalAlignment="Top" Margin="0,14,0,0" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="17"/>
+            <StackPanel x:Name="Greeting" Orientation="Horizontal" Margin="0,43,0,0">
+                <TextBlock x:Name="Hi" Text="Hi," VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" FontSize="19"/>
                 <TextBlock x:Name="Date" Text="Saturday 3/3/2018 | 21:49" VerticalAlignment="Center" Margin="10,5,0,0" HorizontalAlignment="Left" FontWeight="Normal" FontSize="14"/>
-            </StackPanel>
-            <AutoSuggestBox VerticalAlignment="Center" Margin="0,20,20,0" HorizontalAlignment="Right" Width="200" QueryIcon="Find"/>
-        </Grid>
-        <Grid x:Name="Headings" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch">
-            <Grid.ChildrenTransitions>
-                <TransitionCollection>
-                    <EdgeUIThemeTransition Edge="Left"/>
-                </TransitionCollection>
-            </Grid.ChildrenTransitions>
-            <StackPanel Margin="20,190,20,0" VerticalAlignment="Top" BorderBrush="Gray" BorderThickness="0,0,0,2">
-                <TextBlock Text="SMS" Foreground="Gray" Margin="5,0,0,0"/>
-            </StackPanel>
-            <StackPanel Margin="20,350,20,0" VerticalAlignment="Top" BorderBrush="Gray" BorderThickness="0,0,0,2">
-                <TextBlock Text="Office 365" Foreground="Gray" Margin="5,0,0,0"/>
             </StackPanel>
         </Grid>
         <!--        

@@ -7,7 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style TargetType="CalendarViewDayItem">
+            <Setter Property="Padding" Value="10,5,0,0"/>
+        </Style>
+    </Page.Resources>
+
     <Grid Background="{x:Null}">
-        <Button Content="click" Click="Button_Click"/>
+        <Grid Name="view1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <CalendarView HorizontalAlignment="Stretch" DayOfWeekFormat="{}{dayofweek.abbreviated(7)}" VerticalAlignment="Stretch" HorizontalDayItemAlignment="Left" VerticalDayItemAlignment="Top" Background="{x:Null}" OutOfScopeBackground="#20FFFFFF" CalendarItemBackground="#a0fcfcfc" BorderBrush="{x:Null}" CalendarViewDayItemChanging="add_event"/>
+        </Grid>
     </Grid>
 </Page>

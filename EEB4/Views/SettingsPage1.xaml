@@ -22,10 +22,10 @@
                     <TextBlock Text="App developer"/>
                     <TextBlock Text="Filip Kalapish" FontSize="20" FontWeight="Bold"/>
                 </StackPanel>
-                <StackPanel BorderBrush="Gray" BorderThickness="0,2,0,0" Margin="0,15,0,0">
+                <StackPanel BorderBrush="Gray" BorderThickness="0,2,0,0" Margin="0,25,0,0">
                     <TextBlock Text="User info" Margin="0,25,0,0"/>
                 </StackPanel>
-                <StackPanel Name="user_info">
+                <StackPanel Name="user_info" Margin="20">
                 </StackPanel>
                 <Frame Name="main_frame" Visibility="Collapsed"/>
             </StackPanel>

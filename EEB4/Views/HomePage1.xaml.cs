@@ -34,25 +34,25 @@ namespace EEB4
             int j = 4;
             for (int i = 0; i < j; i++)
             {
-                Grid local = new Grid { Height = 280, Width = 480 };
+                Grid local = new Grid { Height = 280, Width = 560 };
 
                 Grid con = new Grid { };
                 TextBlock textBlock1 = new TextBlock { Text = "BUS 328 has a delay of over 25 minutes due to bad weather conditions", Foreground = new SolidColorBrush(Colors.Gray), TextWrapping = TextWrapping.WrapWholeWords };
                 con.Children.Add(textBlock1);
-                local.Children.Add(new ItemPane(250, 450, "BUS 328 DELAYED 25 MINUTES", HorizontalAlignment.Left, con, "Info from Transport", "Track on map"));
+                local.Children.Add(new ItemPane(270, 550, "BUS 328 DELAYED 25 MINUTES", HorizontalAlignment.Left, con, "Info from Transport", "Track on map"));
 
                 VariableSizedWrapGrid.SetRowSpan(local, 3);
-                VariableSizedWrapGrid.SetColumnSpan(local, 5);
+                VariableSizedWrapGrid.SetColumnSpan(local, 6);
 
-                Grid local2 = new Grid { Height = 580, Width = 380 };
+                Grid local2 = new Grid { Height = 560, Width = 280 };
 
                 Grid con2 = new Grid { };
-                TextBlock textBlock2 = new TextBlock { Text = "BUS 328 has a delay of over 25 minutes due to bad weather conditions", Foreground = new SolidColorBrush(Colors.Gray), TextWrapping = TextWrapping.WrapWholeWords };
+                TextBlock textBlock2 = new TextBlock { Text = "!!! Project for Geopgraphy; deadline tommorow", Foreground = new SolidColorBrush(Colors.Gray), TextWrapping = TextWrapping.WrapWholeWords };
                 con2.Children.Add(textBlock2);
-                local2.Children.Add(new ItemPane(550, 350, "BUS 328 DELAYED 25 MINUTES", HorizontalAlignment.Left, con2, "Info from Transport", "Track on map"));
+                local2.Children.Add(new ItemPane(550, 270, "Geography project", HorizontalAlignment.Left, con2, "Info from Mail O365", "Sust_dev.ppt"));
 
                 VariableSizedWrapGrid.SetRowSpan(local2, 6);
-                VariableSizedWrapGrid.SetColumnSpan(local2, 4);
+                VariableSizedWrapGrid.SetColumnSpan(local2, 3);
 
                 main10.Children.Add(local); main10.Children.Add(local2);
             }

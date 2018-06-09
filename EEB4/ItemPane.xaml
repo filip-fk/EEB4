@@ -11,12 +11,14 @@
         <Canvas x:Name="shadowHost"/>
         <Rectangle x:Name="main01" Fill="WhiteSmoke" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RadiusX="15" RadiusY="15"/>
         <Grid x:Name="main1" Margin="30,30,30,10">
-            <StackPanel>
-                <TextBlock x:Name="title_" Text="Bus 228 delayed" FontWeight="ExtraBold" FontSize="20" TextWrapping="WrapWholeWords"/>
-                <Grid x:Name="con_" Margin="20,10,30,20">
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock x:Name="title_" Text="Bus 228 delayed" FontWeight="ExtraBold" FontSize="20" TextWrapping="WrapWholeWords"/>
+                    <Grid x:Name="con_" Margin="20,10,30,20">
 
-                </Grid>
-            </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
             <TextBlock Name="f_l" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="LightGray"/>
             <TextBlock Name="f_r" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="{ThemeResource SystemAccentColor}" FontWeight="Medium" Margin="0,0,0,10" FontSize="18"/>
         </Grid>

@@ -5,9 +5,117 @@
     xmlns:local="using:EEB4"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="{x:Null}">
+        <ScrollViewer>
+            <Grid Name="main_con">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="1" Margin="20,20">
+                    <TextBlock Text="Recent graded exercises" FontWeight="ExtraBold" FontSize="20"/>
+                    <GridView x:Name="grade_list" HorizontalAlignment="Stretch" IsItemClickEnabled="False">
+                        <!--Width="{Binding ElementName=main_con,Path=Width}"-->
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                        <GridView.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Padding="12" Background="{x:Null}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Exercise"/>
+                                    <TextBlock Grid.Column="1" FontWeight="Bold" Text="Subject"/>
+                                    <TextBlock Grid.Column="2" FontWeight="Bold" Text="Gade" HorizontalAlignment="Right"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.HeaderTemplate>
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:Name="SingleLineDataTemplate" x:DataType="local:Grade">
+                                <Grid x:Name="e1" Padding="12" HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{x:Bind name}" Grid.Column="0"/>
+                                    <TextBlock Text="{x:Bind subj}" Grid.Column="1"/>
+                                    <TextBlock Text="{x:Bind note}" Grid.Column="2" HorizontalAlignment="Right"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                        <GridView.ItemContainerStyle>
+                            <Style TargetType="GridViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </GridView.ItemContainerStyle>
+                    </GridView>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Margin="0,20,0,0">
+                    <TextBlock Text="All graded exercises" FontWeight="ExtraBold" FontSize="20" Margin="20,20"/>
+                    <ComboBox Name="subjrcts_con" Margin="30,10,0,0">
+                        <ComboBoxItem Content="All" IsSelected="True"/>
+                    </ComboBox>
+                    <Grid Margin="20">
+                        <Canvas Name="cnv" Margin="50,2,0,62" Height="420" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <Grid Name="scale">
+                            <Border BorderThickness="2,0,0,2" BorderBrush="Black" Margin="50,0,0,60"/>
+                            <StackPanel Width="50" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                                <TextBlock Name="t10" Text="100" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                                <TextBlock Name="t9" Text="90" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t8" Text="80" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t7" Text="70" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t6" Text="60" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t5" Text="50" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t4" Text="40" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t3" Text="30" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t2" Text="20" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t1" Text="10" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                                <TextBlock Name="t0" Text="0" HorizontalAlignment="Right" Margin="0,20,5,0"/>
+                            </StackPanel>
+                            <Grid VerticalAlignment="Bottom" Margin="50,430,0,0" Height="50">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Name="m9" Text="Sept " HorizontalAlignment="Center" Grid.Column="0"/>
+                                <TextBlock Name="m10" Text="Oct " HorizontalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Name="m11" Text="Nov " HorizontalAlignment="Center" Grid.Column="2"/>
+                                <TextBlock Name="m12" Text="Dec " HorizontalAlignment="Center" Grid.Column="3"/>
+                                <TextBlock Name="m1" Text="Jan " HorizontalAlignment="Center" Grid.Column="4"/>
+                                <TextBlock Name="m2" Text="Feb " HorizontalAlignment="Center" Grid.Column="5"/>
+                                <TextBlock Name="m3" Text="Mar " HorizontalAlignment="Center" Grid.Column="6"/>
+                                <TextBlock Name="m4" Text="Apr " HorizontalAlignment="Center" Grid.Column="7"/>
+                                <TextBlock Name="m5" Text="May " HorizontalAlignment="Center" Grid.Column="8"/>
+                                <TextBlock Name="m6" Text="Jun " HorizontalAlignment="Center" Grid.Column="9"/>
+                                <TextBlock Name="m7" Text="Jul " HorizontalAlignment="Center" Grid.Column="10"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <!--<Charting:Chart Height="400">
+                                <Charting:StackedLineSeries x:Name="line_con">
+                                </Charting:StackedLineSeries>
+                            </Charting:Chart>-->
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

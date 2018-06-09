@@ -206,7 +206,7 @@ namespace EEB4
             grid.BorderThickness = new Thickness(3);
 
             Flyout fl = new Flyout { };
-            TextBlock text_f = new TextBlock { Text = "Your Location" };
+            TextBlock text_f = new TextBlock { Text = "Bus " + busNum.ToString() };
             fl.Content = text_f;
             FlyoutBase.SetAttachedFlyout(grid, fl);
             FlyoutBase.ShowAttachedFlyout(grid);
@@ -226,10 +226,12 @@ namespace EEB4
             content_container.Children.Clear();
 
             Grid grid1 = new Grid();
-            TextBlock text1 = new TextBlock { Text = "Bus 244 will arrive in " + time.ToString() + " minutes", TextWrapping = TextWrapping.WrapWholeWords };
+            TextBlock text1 = new TextBlock { Text = "Bus " + busNum.ToString() + " will arrive in " + time.ToString() + " minutes", TextWrapping = TextWrapping.WrapWholeWords };
             grid1.Children.Add(text1);
 
-            content_container.Children.Add(new ItemPane(Convert.ToInt32(grid1.ActualHeight+100), 300, "Bus 244 is on time", HorizontalAlignment.Left, grid1, "", ""));
+            content_container.Children.Add(new ItemPane(170, 300, "Bus " + busNum.ToString() + " is on time", HorizontalAlignment.Left, grid1, "", ""));
         }
+
+        private const int busNum = 244;
     }
 }

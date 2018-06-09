@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="EEB4.SschPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EEB4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <Flyout x:Name="SubjectFlyout" LightDismissOverlayMode="On">
+            <StackPanel Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}">
+                <StackPanel Background="DarkGray" Margin="-13,-13,-13,10" Padding="8">
+                    <TextBlock Name="subjN" FontWeight="ExtraBold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Teacher(s):" Width="80" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <TextBlock Name="teacher" Text="" Margin="20,5,5,5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Location:" Width="80" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <TextBlock Name="room" Text="" Margin="20,5,5,5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Start - End:" Width="80" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <TextBlock Name="timeS" Text="" Margin="20,5,5,5"/>
+                </StackPanel>
+            </StackPanel>
+        </Flyout>
+        <Flyout x:Name="SubjectFlyout2">
+            <StackPanel Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}">
+                <StackPanel Orientation="Horizontal" Background="DarkGray" Margin="-13,-13,-13,10" Padding="8">
+                    <TextBlock Name="subjN2" FontWeight="ExtraBold"/>
+                    <TextBlock Text=" - New note" Margin="0,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Title" Width="80" FontWeight="Bold"/>
+                    <TextBox Name="tt2" Text="" Margin="20,0,5,0" MinWidth="180" MaxWidth="320"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Content" Width="80" FontWeight="Bold"/>
+                    <TextBox Name="nt2" Margin="20,0,5,0" MinWidth="180" MaxWidth="320" MinHeight="90" MaxHeight="120"/>
+                </StackPanel>
+                <Grid HorizontalAlignment="Stretch" Margin="0,5">
+                    <Button Name="discB" Content="Discard" HorizontalAlignment="Left" Click="discB_Click"/>
+                    <Button Name="saveB" Content="Save" HorizontalAlignment="Right" Background="{StaticResource SystemAccentColor}" Foreground="White"/>
+                </Grid>
+            </StackPanel>
+        </Flyout>
+    </Page.Resources>
+
+    <Grid Background="{x:Null}">
+        <Grid Name="con" Margin="220,70,20,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
+        </Grid>
+        <Grid Margin="20">
+            <Grid Name="left" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="180" Margin="0,50,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Grid Name="up" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Margin="220,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -20,16 +20,11 @@ namespace EEB4
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AssiPage1 : Page
+    public sealed partial class AbcsPage1 : Page
     {
-        public AssiPage1()
+        public AbcsPage1()
         {
             this.InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(AssiPage1));
         }
     }
 }
